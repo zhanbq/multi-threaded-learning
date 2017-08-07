@@ -13,7 +13,7 @@ public class ChangeLock {
 		synchronized (lock) {
 			try {
 				System.out.println("当前线程 : "  + Thread.currentThread().getName() + "开始");
-//				lock = "change lock";
+//				lock = "change lock"; //这里改变对象所 输出的结果不同 正常持有相同的锁的时候 t2线程必须等待t1线程结束才会开始,如果改变对象锁,那么锁失效
 				Thread.sleep(2000);
 				System.out.println("当前线程 : "  + Thread.currentThread().getName() + "结束");
 			} catch (InterruptedException e) {
