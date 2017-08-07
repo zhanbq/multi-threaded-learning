@@ -1,0 +1,62 @@
+package com.bjsxt.base.coll013;
+
+import java.util.concurrent.DelayQueue;
+
+/**
+ * DelayQueue  带有延迟时间的queue,其中的元素只有当其指定的延迟时间到了,才能够从队列中取到该元素
+ * Delayqueue中的元素必须实现delauyqueue接口,DelayQueue是一个没有大小限制的队列,应用场景很多,
+ * 比如对缓存超时 的数据进行移除,任务超时处理,空闲链接的关闭的等等
+ * @author o
+ *
+ */
+public class WangBa implements Runnable {  
+    
+    private DelayQueue<Wangmin> queue = new DelayQueue<Wangmin>();  
+    
+    public boolean yinye =true;  
+    
+    /**
+     *  
+     * @param name
+     * @param id
+     * @param money 网费(money)*上网时间单位(1000) = 上网时间
+     */
+    public void shangji(String name,String id,int money){  
+        Wangmin man = new Wangmin(name, id, 1000 * money + System.currentTimeMillis());  
+        System.out.println("网名"+man.getName()+" 身份证"+man.getId()+"交钱"+money+"块,开始上机...");  
+        this.queue.add(man);  
+    }  
+      
+    public void xiaji(Wangmin man){  
+        System.out.println("网名"+man.getName()+" 身份证"+man.getId()+"时间到下机...");  
+    }  
+  
+    @Override  
+    public void run() {  
+        while(yinye){  
+            try {  
+                Wangmin man = queue.take();  
+                xiaji(man);  
+            } catch (InterruptedException e) {  
+                e.printStackTrace();  
+            }  
+        }  
+    }  
+      
+    public static void main(String args[]){  
+        try{  
+            System.out.println("网吧开始营业");  
+            WangBa siyu = new WangBa();  
+            Thread shangwang = new Thread(siyu);  
+            shangwang.start();  
+              
+            siyu.shangji("路人甲", "123", 1);  
+            siyu.shangji("路人乙", "234", 10);  
+            siyu.shangji("路人丙", "345", 5);  
+        }  
+        catch(Exception e){  
+            e.printStackTrace();
+        }  
+  
+    }  
+}  
