@@ -1,7 +1,7 @@
 package com.bjsxt.base.sync005;
 /**
  * synchronized异常
- * @author alienware
+ * @author zhanbq
  * 场景 : 多任务执行
  */
 public class SyncException {

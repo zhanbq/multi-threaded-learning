@@ -14,7 +14,7 @@ package com.bjsxt.base.sync002;
  * 所以代码中哪个线程先执行synchronized关键字的方法，哪个线程就持有该方法所属对象的锁（Lock），
  * 
  * 在静态方法上加synchronized关键字，表示锁定.class类，类一级别的锁（独占.class类）。
- * @author alienware
+ * @author zhanbq
  *
  */
 public class MultiThread {

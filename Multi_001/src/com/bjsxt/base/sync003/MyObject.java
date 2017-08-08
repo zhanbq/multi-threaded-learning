@@ -13,6 +13,7 @@ package com.bjsxt.base.sync003;
  *              原子性(同步)
  *              可见性
  *  同步的目的是为了线程安全,其实对于线程安全来说,需要满足两个特性:
+ *  @author zhanbq
  */
 public class MyObject {
 

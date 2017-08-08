@@ -2,7 +2,7 @@ package com.bjsxt.base.sync005;
 /**
  * synchronized的重入:
  * 
- * @author alienware
+ * @author zhanbq
  * 关键字synchronized拥有锁冲入的功能,也就是在使用synchronized时,
  * 当一个线程得到了一个对象的锁后,再次请求对象时是可以再次得到该对象的
  * 锁.
